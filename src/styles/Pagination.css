@@ -1,0 +1,29 @@
+.paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    color: white;
+    font-weight: bold
+}
+
+.paginacion a:hover {
+    background: #393ab436;
+    border-radius: 40px;
+}
+
