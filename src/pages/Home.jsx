@@ -12,8 +12,9 @@ const INITIAL_PAGE = 0;
 
 const Home = () => {
     const [valueSearch, setValueSearch] = useState("");
-    let [heroesList, setHeroesList] = useState({})
-    const [pageNumber, setPageNumber] = useState(INITIAL_PAGE)
+    let [heroesList, setHeroesList] = useState({});
+    const [pageNumber, setPageNumber] = useState(INITIAL_PAGE);
+    const [favoriteHeroes, setFavoriteHeroes] = useState([]);
 
     let pageCount
     let changePage
@@ -81,26 +82,56 @@ const Home = () => {
                                 <div className="container__heroes--item__details">
                                     <p className="container__heroes__item--title">{heroe.name}</p>
                                     <button className="buttonView">Ver detalles</button>
-                                    <button className="buttonView">Agregar a favorito</button>
+                                    <button className="buttonView"
+                                            onClick= {() => setFavoriteHeroes( favoriteHeroes => [...favoriteHeroes, heroe])}
+                                    >Agregar a favorito</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </section>
-                <section className="paginacion">
-                    <ul>
-                        <ReactPaginate
-                            previousLabel={"Anterior"}
-                            nextLabel={"Siguiente"}
-                            pageCount={pageCount}
-                            onPageChange={changePage}
-                            containerClassName={"paginationBttns"}
-                            previousLinkClassName={"previousBttn"}
-                            nextLinkClassName={"nextBttn"}
-                            disabledClassName={"paginationDisabled"}
-                            activeClassName={"paginationActive"}
-                        />
-                    </ul>
+                {pageCount > 1 &&
+                    <section className="paginacion">
+                        <ul>
+                            <ReactPaginate
+                                previousLabel={"Anterior"}
+                                nextLabel={"Siguiente"}
+                                pageCount={pageCount}
+                                onPageChange={changePage}
+                                containerClassName={"paginationBttns"}
+                                previousLinkClassName={"previousBttn"}
+                                nextLinkClassName={"nextBttn"}
+                                disabledClassName={"paginationDisabled"}
+                                activeClassName={"paginationActive"}
+                            />
+                        </ul>
+                    </section>
+                }
+            </section>
+            }
+
+            {favoriteHeroes && favoriteHeroes.length > 0  &&
+            <section>
+                <section className="categories__title">
+                    <h2 className="categories__title"> Tus favoritos: </h2>
+                </section>
+
+                <section className="carousel">
+                    <div className="carousel__container">
+                        {favoriteHeroes.map(heroe => (
+                            <div className="carousel-item">
+                                <img className="carousel-item__img"
+                                     src={heroe.image.url}
+                                     alt="image-heroe"/>
+                                <div className="carousel-item__details">
+                                    <p className="carousel-item__details--subtitle">{heroe.name}</p>
+                                    <button className="buttonView">Ver detalles</button>
+                                    <button className="buttonView">Eliminar de favoritos
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </section>
             }
