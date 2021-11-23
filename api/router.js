@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const axios = require("axios");
-let PORT = 3001
+const PORT = process.env.PORT || 3001;
 const cors = require("cors");
 
 const API = 'https://superheroapi.com/api/4500791343373570/search/'
