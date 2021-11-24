@@ -14,13 +14,13 @@ body {
 }
 
 .home__title {
-  color: white;
+  color: #ffffff;
   font-size: 30px;
 }
 
 .inputSearchHeroes {
   background-color: rgba(255, 255, 255, 0.1);
-  border: solid white;
+  border: solid #ffffff;
   border-width: 1px 3px;
   border-radius: 25px;
   font-family: "Muli", sans-serif;
@@ -29,11 +29,11 @@ body {
   padding: 0 20px;
   width: 70%;
   outline: none;
-  color: white;
+  color: #ffffff;
   box-shadow: 0 0 5px 0 rgb(243 238 238);
 }
 ::placeholder {
-  color: white;
+  color: #ffffff;
 }
 .inputSearchHeroes:hover {
   box-shadow: 0 0 20px 0 rgb(243 238 238);
@@ -49,4 +49,13 @@ body {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+}
+
+.inputButtonSearchHeroes a{
+  height: 60px;
+  width: 50px;
+  background-color: #ffffff;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
 }

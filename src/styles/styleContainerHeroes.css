@@ -2,7 +2,7 @@
     height: 100%;
     margin: 50px 75px 0 75px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow-x: auto;
 }
 .container__heroes {
@@ -36,7 +36,7 @@
 
 .container__heroes--item__details {
     background: linear-gradient(to top, #393ab457 0%, rgb(0 0 0 / 0%) 100%);
-    color: white;
+    color: #ffffff;
     padding: 7px;
     position: absolute;
     left: 0;
@@ -44,32 +44,35 @@
     bottom: 0;
 }
 
+.container__heroes--item__details a {
+    text-decoration: none;
+}
+
 .container__heroes__item--title {
     font-size: 23px;
     display: block;
     text-align: left;
     font-weight :600;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 0.5px #ffffff;
 }
 
 .buttonView {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.35);
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 6px;
     margin: 6px 0;
-    color: white;
+    color: #ffffff;
     font-weight :bold;
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 14px;
-    border: 1px dashed;
+    border: 1px ;
 }
 
 .buttonView:hover {
     box-shadow: 0 0 4px 0 rgb(243 238 238);
-    border: 1px dashed;
 }
 
 

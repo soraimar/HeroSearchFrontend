@@ -4,11 +4,14 @@ import ReactPaginate from 'react-paginate'
 import '../styles/styleSearchEngine.css';
 import '../styles/styleContainerHeroes.css'
 import '../styles/Pagination.css';
-
+import '../styles/styleCarosel.css'
 
 const API = 'http://localhost:3001/heroes?nameHeroes=';
 const ENTER = 13;
 const INITIAL_PAGE = 0;
+const IMAGE_ERROR = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQETJg7l9pftEXciVHW-45vFeRw0zfzgXG0aA&usqp=CAU"
+// const URL_DETAIL = "http://herlocalhost:3000/detail"
+const URL_DETAIL = "http://localhost:3000/detail/"
 
 const Home = () => {
     const [valueSearch, setValueSearch] = useState("");
@@ -56,10 +59,6 @@ const Home = () => {
                            value ={valueSearch}
                            onKeyPress={(e) => handleKeyPress(e)}
                            onChange={(e) => setValueSearch(e.target.value)}/>
-                    <input type="submit"
-                           value="buscar"
-                           onClick={() => handleClick(valueSearch)}>
-                    </input>
                 </div>
             </div>
 
@@ -76,15 +75,19 @@ const Home = () => {
                                 <img className="container__heroes--item__img"
                                      src={heroe.image.url}
                                      onError={(e)=>{e.target.onerror = null;
-                                         e.target.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQETJg7l9pftEXciVHW-45vFeRw0zfzgXG0aA&usqp=CAU"}}
+                                         e.target.src= IMAGE_ERROR }
+                                     }
+                                    alt=""
                                 />
-
                                 <div className="container__heroes--item__details">
                                     <p className="container__heroes__item--title">{heroe.name}</p>
-                                    <button className="buttonView">Ver detalles</button>
+                                    <a href={ URL_DETAIL + heroe.id.toString()}>
+                                        <button className="buttonView">Ver detalles</button>
+                                    </a>
                                     <button className="buttonView"
                                             onClick= {() => setFavoriteHeroes( favoriteHeroes => [...favoriteHeroes, heroe])}
-                                    >Agregar a favorito</button>
+                                            >Agregar a favorito
+                                    </button>
                                 </div>
                             </div>
                         ))}
@@ -122,10 +125,12 @@ const Home = () => {
                             <div className="carousel-item">
                                 <img className="carousel-item__img"
                                      src={heroe.image.url}
-                                     alt="image-heroe"/>
+                                     />
                                 <div className="carousel-item__details">
-                                    <p className="carousel-item__details--subtitle">{heroe.name}</p>
-                                    <button className="buttonView">Ver detalles</button>
+                                    <p className="container__heroes__item--title">{heroe.name}</p>
+                                    <a href={ URL_DETAIL + heroe.id.toString()}>
+                                        <button className="buttonView">Ver detalles</button>
+                                    </a>
                                     <button className="buttonView">Eliminar de favoritos
                                     </button>
                                 </div>
