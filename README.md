@@ -2,7 +2,7 @@
 
 App de tipo galería donde se realizan busqueda de heroes y se puede consultar los detalles de cada uno de ell@s, **este producto es un MVP**
 
-###Appearance :
+### Appearance :
 * Home:
 ![plot](img/Home.png) 
 * Detalle Heroe:
