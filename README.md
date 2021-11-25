@@ -33,11 +33,11 @@ Getting Started
 ````
 
 ### Build in *Heroku*:
-
+* push
 ````
 >  heroku container:push web -a cencosud-test
 ````
-
+* release
 ````
 >  heroku container:release web -a cencosud-test
 ````
