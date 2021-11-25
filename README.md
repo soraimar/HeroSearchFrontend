@@ -35,7 +35,7 @@ Getting Started
 ### Build in *Heroku*:
 * push
 ````
->  heroku container:push web -a cencosud-test
+>  heroku container:push --recursive -a cencosud-test
 ````
 * release
 ````
