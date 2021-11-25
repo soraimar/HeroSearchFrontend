@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import '../styles/styleDetalleHeroe.css'
+import {API_BASE_PATH} from '../config/const'
 
-const API = 'http://localhost:3001/heroes/id?idHeroe=';
-const IMAGE_ERROR = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQETJg7l9pftEXciVHW-45vFeRw0zfzgXG0aA&usqp=CAU"
+const API = `${API_BASE_PATH}heroes/id?idHeroe=`;
+const IMAGE_ERROR = "https//encrypted-tbn0.gstatic.com/images?q=tbnANd9GcQETJg7l9pftEXciVHW-45vFeRw0zfzgXG0aA&usqp=CAU"
 
 const DetalleHeroe = () => {
 
@@ -23,9 +24,8 @@ const DetalleHeroe = () => {
         <section>
             {heroe && heroe.id &&
                 <section className="detalleHeroe">
-
                     <section className="detalleHeroe__image">
-                        <p className="detalleHeroe__image-title">{heroe.name}</p>
+                        <p className="detalleHeroe__image--title">{heroe.name}</p>
                         <img className="detalleHeroe__image-img"
                             src={heroe.image.url}
                             onError={(e)=> {e.target.onerror = null;
@@ -36,87 +36,200 @@ const DetalleHeroe = () => {
                     <section className="detalleHeroe__detalle">
                         {heroe.powerstats &&
                         <div>
-                            <div className= "detalleHeroe__image-title" >Powerstats:</div>
+                            <div className= "detalleHeroe__image--title" >Power stats</div>
                             <div className="detalleHeroe__detalle__container">
-                                <div> intelligence: {heroe.powerstats.intelligence} </div>
-                                <div> strength: {heroe.powerstats.strength}</div>
-                                <div> speed: {heroe.powerstats.speed}</div>
-                                <div> durability: {heroe.powerstats.durability}</div>
-                                <div> power: {heroe.powerstats.power}</div>
-                                <div> comba: {heroe.powerstats.combat}</div>
-                            </div>
-                        </div>
-
-                        }
-
-                       {heroe.biography &&
-                        <div>
-                            <div className= "detalleHeroe__image-title" >Biography</div>
-                            <div className="detalleHeroe__detalle__container">
-                                {heroe.biography['full-name'] &&
-                                <div> full-name: {heroe.biography['full-name']}</div>
-                                }
-                                {heroe.biography['alter-egos'] &&
-                                <div> alter-egos: {heroe.biography['alter-egos']}</div>
-                                }
-                                {heroe.biography.aliases &&
-                                <div> aliases: {heroe.biography.aliases.map(aliase => (
-                                    <div> Alias: {aliase} </div>
-                                ))}
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        intelligence
+                                    </div>
+                                        {heroe.powerstats.intelligence}
                                 </div>
-                                }
-                                {heroe.biography['place-of-birth'] &&
-                                <div> place-ofirth: {heroe.biography['place-of-birth']}</div>
-                                }
-
-                                {heroe.biography['first-appearance'] &&
-                                <div> first-appearance: {heroe.biography['first-appearance']}</div>
-                                }
-                                {heroe.biography &&
-                                <div> publisher: {heroe.biography.publisher}</div>
-                                }
-                                {heroe.alignment &&
-                                <div> alignment: {heroe.biography.alignment}</div>
-                                }
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Strength
+                                    </div>
+                                    {heroe.powerstats.strength}
+                                </div>
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Speed
+                                    </div>
+                                    {heroe.powerstats.speed}
+                                </div>
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Durability
+                                    </div>
+                                    {heroe.powerstats.durability}
+                                </div>
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Power
+                                    </div>
+                                    {heroe.powerstats.power}</div>
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Comba
+                                    </div>
+                                    {heroe.powerstats.combat}
+                                </div>
                             </div>
                         </div>
                         }
+
+                        {heroe.biography &&
+                         <div>
+                             <div className= "detalleHeroe__image--title" >Biography</div>
+                             <div className="detalleHeroe__detalle__container">
+                                 {heroe.biography['full-name'] &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Full name
+                                     </div>
+                                     {heroe.biography['full-name']}
+                                 </div>
+                                 }
+
+                                 {heroe.biography['alter-egos'] &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Alter egos
+                                     </div>
+                                     {heroe.biography['alter-egos']}
+                                 </div>
+                                 }
+
+                                 {heroe.biography.aliases &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Aliases
+                                     </div>
+                                      {heroe.biography.aliases.map(aliase => (
+                                     <li> {aliase} </li>
+                                 ))}
+                                 </div>
+                                 }
+
+                                 {heroe.biography['place-of-birth'] &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Place ofirth
+                                     </div>
+                                     {heroe.biography['place-of-birth']}
+                                 </div>
+                                 }
+
+                                 {heroe.biography['first-appearance'] &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         First appearance
+                                     </div>
+                                     {heroe.biography['first-appearance']}
+                                 </div>
+                                 }
+
+                                 {heroe.biography &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Publisher
+                                     </div>
+                                      {heroe.biography.publisher}
+                                 </div>
+                                 }
+
+                                 {heroe.alignment &&
+                                 <div>
+                                     <div className="detalleHeroe__detalle__container--atributo">
+                                         Alignment
+                                     </div>
+                                     {heroe.biography.alignment}</div>
+                                 }
+                             </div>
+                         </div>
+                         }
 
                         {heroe.appearance &&
                         <div>
-                            <div className= "detalleHeroe__image-title" >Appearance</div>
+                            <div className= "detalleHeroe__image--title" >Appearance</div>
                             <div className="detalleHeroe__detalle__container">
-                                <div> Gender : {heroe.appearance.gender}</div>
-                                <div> Race : {heroe.appearance.race}</div>
-                                <div> Height : { heroe.appearance.height.map(element => (
-                                    <p>{element}</p>
-                                ))}
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Gender 
+                                    </div>
+                                    {heroe.appearance.gender}
                                 </div>
-                                <div> Weight : {heroe.appearance.weight}</div>
-                                <div> Eye Color : {heroe.appearance['eye-color']}</div>
-                                <div> Hair Color : {heroe.appearance['hair-color']}</div>
+
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Race 
+                                    </div>
+                                    {heroe.appearance.race}
+                                </div>
+
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Height 
+                                    </div>
+                                    { heroe.appearance.height.map(element => (
+                                        <li>{element}</li>
+                                    ))}
+                                </div>
+
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Weight 
+                                    </div>
+                                    {heroe.appearance.weight}
+                                </div>
+
+                                <div>
+                                    <div className="detalleHeroe__detalle__container--atributo">
+                                        Hair Color 
+                                    </div>
+                                    {heroe.appearance['hair-color']}
+                                </div>
+
                             </div>
                         </div>
                         }
 
                         {heroe.work &&
-                        <div>
-                            <div className= "detalleHeroe__image-title" >Work</div>
-                            <div className="detalleHeroe__detalle__container">
-                                <div> Occupation: {heroe.work.occupation}</div>
-                                <div> Base of operation: {heroe.work.base}</div>
-                            </div>
-                        </div>
-                        }
+                            <div>
+                                <div className= "detalleHeroe__image--title" >Work</div>
+                                <div className="detalleHeroe__detalle__containerTwoAtributos">
+                                    <div>
+                                        <div className="detalleHeroe__detalle__container--atributo">
+                                            Occupation
+                                        </div>
+                                        {heroe.work.occupation}
+                                    </div>
 
-                        {heroe.connections &&
-                        <div>
-                            <div className= "detalleHeroe__image-title" >Connections</div>
-                            <div className="detalleHeroe__detalle__container">
-                                <div> Group Affiliation: {heroe.connections['group-affiliation']} </div>
-                                <div> Relatives: {heroe.connections.relatives} </div>
+                                    <div>
+                                        <div className="detalleHeroe__detalle__container--atributo">
+                                            Base of operation
+                                        </div>
+                                        {heroe.work.base}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            }
+
+                            {heroe.connections &&
+                            <div>
+                                <div className= "detalleHeroe__image--title" >Connections</div>
+                                <div className="detalleHeroe__detalle__containerTwoAtributos">
+                                    <div>
+                                        <div className="detalleHeroe__detalle__container--atributo">
+                                            Group Affiliation
+                                        </div>
+                                        {heroe.connections['group-affiliation']} </div>
+                                    <div>
+                                        <div className="detalleHeroe__detalle__container--atributo">
+                                            Relatives
+                                        </div>
+                                        {heroe.connections.relatives} </div>
+                                </div>
+                            </div>
                         }
                     </section>
                 </section>

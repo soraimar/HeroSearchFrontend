@@ -1,8 +1,7 @@
 body {
   font-family: 'Muli', sans-serif;
-  height: 100%;
   margin: 0;
-  background:linear-gradient(0, #ff66ff 0, #ff62ff 16.67%, #e95cff 33.33%, #bc53f2 50%, #904adc 66.67%, #6541c8 83.33%, #393ab4 100%)no-repeat fixed;
+  background: linear-gradient(to top, #242735, #1e212e, #171a28, #111422, #090c1c) no-repeat fixed;
 }
 
 .home {
@@ -15,7 +14,7 @@ body {
 
 .home__title {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .inputSearchHeroes {

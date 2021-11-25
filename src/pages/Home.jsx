@@ -5,13 +5,13 @@ import '../styles/styleSearchEngine.css';
 import '../styles/styleContainerHeroes.css'
 import '../styles/Pagination.css';
 import '../styles/styleCarosel.css'
+import {API_BASE_PATH, BASE_PATH} from "../config/const";
 
-const API = 'http://localhost:3001/heroes?nameHeroes=';
+const API = `${API_BASE_PATH}heroes?nameHeroes=`;
 const ENTER = 13;
 const INITIAL_PAGE = 0;
 const IMAGE_ERROR = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQETJg7l9pftEXciVHW-45vFeRw0zfzgXG0aA&usqp=CAU"
-// const URL_DETAIL = "http://herlocalhost:3000/detail"
-const URL_DETAIL = "http://localhost:3000/detail/"
+const URL_DETAIL = `${BASE_PATH}detail/`
 
 const Home = () => {
     const [valueSearch, setValueSearch] = useState("");
@@ -125,6 +125,9 @@ const Home = () => {
                             <div className="carousel-item">
                                 <img className="carousel-item__img"
                                      src={heroe.image.url}
+                                     onError={(e)=>{e.target.onerror = null;
+                                         e.target.src= IMAGE_ERROR }
+                                     }
                                      />
                                 <div className="carousel-item__details">
                                     <p className="container__heroes__item--title">{heroe.name}</p>
