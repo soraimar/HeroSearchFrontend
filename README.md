@@ -1,8 +1,12 @@
 # front-End Heroes Cencosud
 
-App de galería de súper heroes, este producto es un MVP
+App de tipo galería donde se realizan busqueda de heroes y se puede consultar los detalles de cada uno de ell@s, **este producto es un MVP**
 
-Skills de super heroes
+###Appearance :
+* Home:
+![plot](img/Home.png) 
+* Detalle Heroe:
+![plot](img/DetailHeroe.png) 
 
 Technology
 ---
@@ -10,10 +14,25 @@ Technology
 
 Getting Started
 ---
-In the project directory, you can run:
-### `npm start`
-### `npm test`
-### `npm run build`
+### Install dependencies :
+```
+>  npm install
+````
+
+### Start :
+```
+>  npm start
+````
+
+### Build:
+
+````
+>  heroku container:push web -a cencosud-test
+````
+
+````
+>  heroku container:release web -a cencosud-test
+````
 
 Collaborate
 ---
