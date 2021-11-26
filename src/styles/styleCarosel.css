@@ -49,30 +49,26 @@
 .carousel-item:hover ~ .carousel-item {
   transform: translate3d(30px, 0, 0);
 }
-.carousel__container:hover .carousel-item {
-  opacity: 0.3;
-}
 .carousel__container:hover .carousel-item:hover {
-  transform: scale(1.05);
-  opacity: 1;
+  transform: scale(1.06);
+  box-shadow: 0 0 7px 0 rgb(243 238 238);
 }
 
 .carousel-item__img {
   width: 226px;
-  height: 320px;
+  height: 419px;
   object-fit: cover;
 }
+
 .carousel-item__details {
-  background: linear-gradient(to top, #393ab457 0%, rgb(0 0 0 / 0%) 100%);
-  color: #ffffff;
-  padding: 7px;
+  background: linear-gradient(0deg,rgb(0 0 0 / 98%) 0,#000000c2,rgb(0 0 0 / 0%));
+  color: #fff;
+  padding: 50px 7px 7px 7px;
   position: absolute;
+  height: 148px;
   left: 0;
   right: 0;
   bottom: 0;
-}
-.carousel-item__details:hover{
-  opacity: 1;
 }
 
 .carousel-item__details--title {

@@ -31,15 +31,16 @@
 
 .container__heroes--item__img {
     width: 226px;
-    height: 320px;
+    height: 419px;
     object-fit: cover;
 }
 
 .container__heroes--item__details {
-    background: linear-gradient(to top, #393ab457 0%, rgb(0 0 0 / 0%) 100%);
-    color: #ffffff;
-    padding: 7px;
+    background: linear-gradient(0deg,rgb(0 0 0 / 98%) 0,#000000c2,rgb(0 0 0 / 0%));
+    color: #fff;
+    padding: 50px 7px 7px 7px;
     position: absolute;
+    height: 148px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -58,7 +59,7 @@
 }
 
 .buttonView {
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.2);
     width: 100%;
     display: flex;
     justify-content: center;
